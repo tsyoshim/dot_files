@@ -26,12 +26,6 @@ set autoindent
 "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set smartindent
 
-"現在文字列/全体列表示
-set statusline+=[C=%c/%{col('$')-1}]
-
-"現在文字行/全体行表示
-set statusline+=[L=%l/%L]
-
 "括弧の対応をハイライト
 set showmatch
 
@@ -47,7 +41,6 @@ set nocompatible
 filetype off
 
 " ファイル形式検出、プラグイン、インデントを ON
-"
 filetype plugin indent on
 set nocompatible
 filetype plugin indent off
@@ -72,20 +65,24 @@ NeoBundle 'Shougo/unite.vim'
 
 " solarized
 NeoBundle 'altercation/vim-colors-solarized'
+
 " mustang
 NeoBundle 'croaker/mustang-vim'
+
 " jellybeans
 NeoBundle 'nanotech/jellybeans.vim'
+
 " molokai
 NeoBundle 'tomasr/molokai'
 
+" カラースキーム表示確認 :Unite colorscheme -auto-preview
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 
-" gitの差分を表示するぜ
+" gitの差分を表示する
 NeoBundle 'airblade/vim-gitgutter'
 
-" NERDTreeを設定
+" NERDTreeを設定 :NERDTree
 NeoBundle 'scrooloose/nerdtree'
 
 " 括弧を入力した際、自動的にとじ括弧を挿入してくれるプラグイン
@@ -106,6 +103,7 @@ NeoBundleCheck
 " End Neobundle Settings.
 "-------------------------
 
+
 " solarized
 let g:solarized_termcolors=16
 let g:solarized_termtrans=1
@@ -115,15 +113,15 @@ let g:solarized_underline=1
 let g:solarized_italic=1
 let g:solarized_contrast='normal'
 let g:solarized_visibility='normal'
-"let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
+
 syntax enable
 set background=dark
 colorscheme solarized
-
-" gitの差分を表示する
-:highlight SignColumn guibg=darkgrey
+" gitgutter を見やすく
+highlight clear SignColumn
 
 set laststatus=2
 if !has('gui_running')
-    set t_Co=256
+  set t_Co=256
   endif
